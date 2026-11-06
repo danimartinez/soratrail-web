@@ -1,6 +1,6 @@
 # Trail de Sora — Web Oficial (Astro + Tailwind CSS)
 
-Clon modernitzat i optimitzat de [soratrail.cat](https://soratrail.cat/) construït amb **Astro 5** i **Tailwind CSS 4**, preparat per desplegar-se a **Cloudflare Pages**.
+Clon modernitzat i optimitzat de [soratrail.cat](https://soratrail.cat/) construït amb **Astro 5** i **Tailwind CSS 4**, preparat per desplegar-se a **Vercel**.
 
 ## Estructura de pàgines
 
@@ -28,12 +28,14 @@ npm run build
 npm run preview
 ```
 
-## Desplegament a Cloudflare Pages
+## Desplegament a Vercel i configuració del domini `soratrail.cat`
 
-1. Entra a [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Selecciona el repositori de GitHub `danimartinez/soratrail-web`.
-3. Configura el build:
-   - **Framework preset**: `Astro`
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-4. *(Opcional)* Perquè el formulari de contacte enviï correus directament des de la funció `/api/contact` sense obrir el gestor de correu de l'usuari, afegeix la variable d'entorn `WEB3FORMS_ACCESS_KEY` (gratuïta a [web3forms.com](https://web3forms.com/) per a `trailsora@gmail.com`).
+1. Entra a [Vercel Dashboard](https://vercel.com/new) i importa el repositori de GitHub `danimartinez/soratrail-web`.
+2. Vercel detectarà automàticament **Astro** gràcies a `vercel.json` (`npm run build` → `dist`). Fes clic a **Deploy**.
+3. **Configurar el domini (`soratrail.cat`)**:
+   - Dins del projecte a Vercel, ves a **Settings** → **Domains** i afegeix `soratrail.cat` (i `www.soratrail.cat`).
+   - Al teu proveïdor de domini actual (sense transferir el domini), apunta els registres DNS que t'indiqui Vercel:
+     - Registre **A** per a `@` (`soratrail.cat`) → `76.76.21.21`
+     - Registre **CNAME** per a `www` → `cname.vercel-dns.com.`
+   - Vercel generarà i renovarà el certificat SSL (HTTPS) automàticament.
+4. *(Opcional)* Perquè el formulari de contacte enviï correus directament des de la funció `/api/contact` sense obrir el gestor de correu de l'usuari, afegeix la variable d'entorn `WEB3FORMS_ACCESS_KEY` a **Settings** → **Environment Variables** (gratuïta a [web3forms.com](https://web3forms.com/) per a `trailsora@gmail.com`).

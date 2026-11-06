@@ -1,11 +1,11 @@
 /**
- * Cloudflare Pages Function for /api/contact
- * Supports forwarding contact form submissions via Web3Forms (if WEB3FORMS_ACCESS_KEY is configured in Cloudflare)
+ * Vercel Serverless Function for POST /api/contact
+ * Supports forwarding contact form submissions via Web3Forms (if WEB3FORMS_ACCESS_KEY is configured in Vercel)
  * or returning 501 so the client gracefully opens a pre-filled mailto:trailsora@gmail.com.
  */
-export async function onRequestPost(context) {
+export async function POST(request) {
   try {
-    const formData = await context.request.formData();
+    const formData = await request.formData();
 
     // Honeypot check
     if (formData.get('bot_field')) {
@@ -26,7 +26,7 @@ export async function onRequestPost(context) {
       });
     }
 
-    const accessKey = context.env?.WEB3FORMS_ACCESS_KEY;
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
     if (accessKey) {
       const payload = new FormData();
       payload.append('access_key', accessKey);
