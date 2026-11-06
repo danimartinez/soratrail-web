@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sponsors = [
+  { name: 'Bosch', src: '/images/sponsors/bosch.png' },
+  { name: 'Campanini', src: '/images/sponsors/campanini.png' },
+  { name: 'Can Corominas', src: '/images/sponsors/can-corominas.jpeg' },
+  { name: 'Gastrocook', src: '/images/sponsors/gastrocook.png' },
+  { name: 'JM Jardiner', src: '/images/sponsors/jmjardiner.jpeg' },
+  { name: 'Molas', src: '/images/sponsors/molas.png' },
+  { name: 'Can Pedret', src: '/images/sponsors/can-pedret.png' },
+  { name: 'Casal Reig', src: '/images/sponsors/casal-reig.jpg' },
+  { name: 'Clarella', src: '/images/sponsors/clarella.png' },
+  { name: 'Tir de Sal', src: '/images/sponsors/tirdesal.png' },
+  { name: 'El Serradet', src: '/images/sponsors/serradet.png' },
+  { name: 'MGS Assegurances', src: '/images/sponsors/mgs.jpg' },
+  { name: 'Ajuntament de Sora', src: '/images/sponsors/sora.png' },
+  { name: 'Adrià Fotos', src: '/images/sponsors/adriafotos.png', darkBg: true },
+  { name: 'Transports Capdevila', src: '/images/sponsors/transportcapdevila.jpeg' },
+  { name: 'Mas Rovira', src: '/images/sponsors/masrovira.png' },
+  { name: 'Racing Camp', src: '/images/sponsors/racingcamp.png' },
+  { name: 'Some', src: '/images/sponsors/some.png' },
+  { name: 'La Roc', src: '/images/sponsors/laroc.jpg' },
+  { name: "L'Animal", src: '/images/sponsors/lanimal.png' },
+  { name: 'Joan Pol', src: '/images/sponsors/joanpol.jpeg' },
+  { name: 'Heura', src: '/images/sponsors/heura.jpg' },
+  { name: 'Els Fogons de la Neus', src: '/images/sponsors/fogonsneus.png' },
+];
+---
+
+<Layout title="Patrocinadors — Trail de Sora">
+  <section class="bg-[#181a18] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-5xl sm:text-7xl tracking-wider text-[#fca52a]">Patrocinadors</h1>
+      <p class="mt-4 text-lg text-white/85">
+        Moltes gràcies a totes les empreses, comerços i institucions que fan possible el Trail de Sora any rere any.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-[#f6f7f4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {sponsors.map((sp) => (
+          <div
+            class:list={[
+              'rounded-2xl p-6 flex items-center justify-center h-44 shadow-sm border transition-transform hover:scale-[1.02]',
+              sp.darkBg
+                ? 'bg-neutral-900 border-neutral-800'
+                : 'bg-white border-neutral-200/80',
+            ]}
+          >
+            <img
+              src={sp.src}
+              alt={sp.name}
+              loading="lazy"
+              class="max-h-28 max-w-full w-auto h-auto object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

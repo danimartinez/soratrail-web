@@ -1,0 +1,304 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Trail de Sora — 16 de maig de 2026">
+  <!-- Hero Section -->
+  <section class="relative min-h-[600px] lg:min-h-[680px] flex items-center overflow-hidden bg-neutral-900">
+    <!-- LCP Hero Image (modern-web-guidance: optimize-image-priority) -->
+    <img
+      src="/images/hero-bg.jpg"
+      alt="Corredors al Trail de Sora"
+      fetchpriority="high"
+      width="1920"
+      height="1280"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/75 via-neutral-950/55 to-neutral-950/65"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Column: Date + Results CTA -->
+        <div class="text-center">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-[#fca52a]/20 border border-[#fca52a]/50 text-[#fca52a] font-heading text-xl tracking-widest mb-4">
+            6a EDICIÓ · SORA (OSONA)
+          </span>
+          <h1 class="font-heading text-6xl sm:text-7xl lg:text-8xl text-white tracking-wider drop-shadow-md">
+            16 MAIG DE 2026
+          </h1>
+          <div class="mt-8 flex justify-center">
+            <a
+              href="https://sportmaniacs.com/es/races/trail-de-sora-2026"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="inline-flex flex-col items-center justify-center px-10 py-4 rounded-full bg-[#fca52a] hover:bg-[#e89218] text-neutral-950 font-heading text-2xl sm:text-3xl tracking-wider shadow-xl hover:scale-105 transition-all duration-200 min-w-[260px]"
+            >
+              <span>RESULTATS</span>
+              <span class="text-lg sm:text-xl font-sans font-semibold tracking-normal">Trail de Sora 2026</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Countdown Display -->
+        <div class="flex justify-center">
+          <div
+            id="countdown"
+            data-date="2026-05-16T08:00:00+02:00"
+            class="grid grid-cols-4 gap-3 sm:gap-5 w-full max-w-lg"
+            aria-label="Compte enrere fins al Trail de Sora"
+          >
+            <div class="bg-white/95 backdrop-blur-sm border-2 border-[#fca52a] rounded-2xl p-4 sm:p-6 text-center shadow-lg">
+              <div data-unit="days" class="font-heading text-4xl sm:text-6xl text-neutral-900 leading-none">0</div>
+              <div class="mt-1 text-xs sm:text-sm uppercase font-semibold tracking-wider text-neutral-600">Dies</div>
+            </div>
+            <div class="bg-white/95 backdrop-blur-sm border-2 border-[#fca52a] rounded-2xl p-4 sm:p-6 text-center shadow-lg">
+              <div data-unit="hours" class="font-heading text-4xl sm:text-6xl text-neutral-900 leading-none">0</div>
+              <div class="mt-1 text-xs sm:text-sm uppercase font-semibold tracking-wider text-neutral-600">Hores</div>
+            </div>
+            <div class="bg-white/95 backdrop-blur-sm border-2 border-[#fca52a] rounded-2xl p-4 sm:p-6 text-center shadow-lg">
+              <div data-unit="minutes" class="font-heading text-4xl sm:text-6xl text-neutral-900 leading-none">0</div>
+              <div class="mt-1 text-xs sm:text-sm uppercase font-semibold tracking-wider text-neutral-600">Minuts</div>
+            </div>
+            <div class="bg-white/95 backdrop-blur-sm border-2 border-[#fca52a] rounded-2xl p-4 sm:p-6 text-center shadow-lg">
+              <div data-unit="seconds" class="font-heading text-4xl sm:text-6xl text-neutral-900 leading-none">0</div>
+              <div class="mt-1 text-xs sm:text-sm uppercase font-semibold tracking-wider text-neutral-600">Segons</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Main Cards Section -->
+  <section class="py-16 sm:py-24 bg-[#f6f7f4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Trail de Sora -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col">
+          <div class="aspect-[3/2] overflow-hidden bg-neutral-200">
+            <img
+              src="/images/card-trail.jpg"
+              alt="Trail de Sora - Nosaltres"
+              width="1024"
+              height="683"
+              loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h2 class="font-heading text-3xl sm:text-4xl text-neutral-900">trail de sora</h2>
+              <p class="mt-2 text-sm text-neutral-600 leading-relaxed">
+                Nosaltres<br />Col·laboració amb Casa Terra
+              </p>
+            </div>
+            <div class="mt-6">
+              <a
+                href="/trail-de-sora/"
+                class="inline-block px-6 py-2.5 rounded-lg bg-[#a8c66b] hover:bg-[#93b454] text-neutral-950 font-heading text-xl tracking-wider transition-colors"
+              >
+                veure
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Reglament -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col">
+          <div class="aspect-[3/2] overflow-hidden bg-neutral-200">
+            <img
+              src="/images/card-reglament.jpg"
+              alt="Reglament Trail de Sora 2026"
+              width="1024"
+              height="683"
+              loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h2 class="font-heading text-3xl sm:text-4xl text-neutral-900">reglament</h2>
+              <p class="mt-2 text-sm text-neutral-600 leading-relaxed">Reglament 2026</p>
+            </div>
+            <div class="mt-6">
+              <a
+                href="/reglament-2026/"
+                class="inline-block px-6 py-2.5 rounded-lg bg-[#a8c66b] hover:bg-[#93b454] text-neutral-950 font-heading text-xl tracking-wider transition-colors"
+              >
+                veure
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Rutes 2026 -->
+        <article class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col">
+          <div class="aspect-[3/2] overflow-hidden bg-neutral-200">
+            <img
+              src="/images/card-rutes.jpg"
+              alt="Rutes 2026 Trail de Sora"
+              width="1024"
+              height="683"
+              loading="lazy"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h2 class="font-heading text-3xl sm:text-4xl text-neutral-900">rutes 2026</h2>
+              <p class="mt-2 text-sm text-neutral-600 leading-relaxed">Les rutes del Trail de Sora</p>
+            </div>
+            <div class="mt-6">
+              <a
+                href="/rutes/"
+                class="inline-block px-6 py-2.5 rounded-lg bg-[#a8c66b] hover:bg-[#93b454] text-neutral-950 font-heading text-xl tracking-wider transition-colors"
+              >
+                veure
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Album + YouTube Video Section -->
+  <section class="py-16 sm:py-24 bg-[#181a18] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5">
+          <h2 class="font-heading text-5xl sm:text-6xl text-white tracking-wider">àlbum de fotos</h2>
+          <p class="mt-4 text-white/75 leading-relaxed">
+            Reviu els millors moments de totes les edicions del Trail de Sora (2021 – 2026).
+          </p>
+          <div class="mt-8">
+            <a
+              href="/albums-de-fotos/"
+              class="inline-block px-8 py-3.5 rounded-xl bg-[#2b9624] hover:bg-[#237b1d] text-white font-heading text-2xl tracking-wider shadow-lg transition-colors"
+            >
+              veure fotos
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/y5_U5ZP_dOE?feature=oembed"
+              title="RESUM COPA OSONING TRAIL RUN 2023"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Feature Blocks: Copa Osoning, Patrocinadors, Sora -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Copa Osoning -->
+        <div class="p-8 rounded-2xl bg-[#f6f7f4] border border-neutral-200/80 flex flex-col justify-between items-start hover:shadow-md transition-shadow">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-[#fca52a]/20 text-[#d9820b] flex items-center justify-center mb-6">
+              <!-- Nordic skiing / trail runner icon -->
+              <svg aria-hidden="true" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-3xl text-neutral-900">copa osoning</h3>
+            <p class="mt-2 text-sm text-neutral-600">Circuit de curses de muntanya d'Osona.</p>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://www.osoning.com/copa-osoning-trail-run/"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="inline-block px-6 py-2.5 rounded-lg bg-[#a8c66b] hover:bg-[#93b454] text-neutral-950 font-heading text-xl tracking-wider transition-colors"
+            >
+              COPA OSONING
+            </a>
+          </div>
+        </div>
+
+        <!-- Patrocinadors -->
+        <div class="p-8 rounded-2xl bg-[#f6f7f4] border border-neutral-200/80 flex flex-col justify-between items-start hover:shadow-md transition-shadow">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-[#fca52a]/20 text-[#d9820b] flex items-center justify-center mb-6">
+              <!-- Mountain icon -->
+              <svg aria-hidden="true" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-3xl text-neutral-900">patrocinadors</h3>
+            <p class="mt-2 text-sm text-neutral-600">Empreses i col·laboradors que fan possible la cursa.</p>
+          </div>
+          <div class="mt-6">
+            <a
+              href="/patrocinadors/"
+              class="inline-block px-6 py-2.5 rounded-lg bg-[#a8c66b] hover:bg-[#93b454] text-neutral-950 font-heading text-xl tracking-wider transition-colors"
+            >
+              PATROCINADORS
+            </a>
+          </div>
+        </div>
+
+        <!-- Sora -->
+        <div class="p-8 rounded-2xl bg-[#f6f7f4] border border-neutral-200/80 flex flex-col justify-between items-start hover:shadow-md transition-shadow">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-[#fca52a]/20 text-[#d9820b] flex items-center justify-center mb-6">
+              <!-- Heritage / nature icon -->
+              <svg aria-hidden="true" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L4 12h3v8h10v-8h3L12 2zm0 3.84L16.13 11H15v7H9v-7H7.87L12 5.84z" />
+              </svg>
+            </div>
+            <h3 class="font-heading text-3xl text-neutral-900">sora</h3>
+            <p class="mt-2 text-sm text-neutral-600">Descobreix el municipi, l'entorn del Bisaura i on menjar.</p>
+          </div>
+          <div class="mt-6">
+            <a
+              href="/sora-2/"
+              class="inline-block px-6 py-2.5 rounded-lg bg-[#a8c66b] hover:bg-[#93b454] text-neutral-950 font-heading text-xl tracking-wider transition-colors"
+            >
+              SABER SOBRE SORA
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const container = document.getElementById('countdown');
+    if (container) {
+      const targetStr = container.getAttribute('data-date');
+      const targetTime = targetStr ? new Date(targetStr).getTime() : 0;
+      const daysEl = container.querySelector('[data-unit="days"]');
+      const hoursEl = container.querySelector('[data-unit="hours"]');
+      const minutesEl = container.querySelector('[data-unit="minutes"]');
+      const secondsEl = container.querySelector('[data-unit="seconds"]');
+
+      function updateCountdown() {
+        const now = Date.now();
+        const diff = Math.max(0, targetTime - now);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        if (daysEl) daysEl.textContent = String(days);
+        if (hoursEl) hoursEl.textContent = String(hours);
+        if (minutesEl) minutesEl.textContent = String(minutes);
+        if (secondsEl) secondsEl.textContent = String(seconds);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+  </script>
+</Layout>

@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const editions = [
+  {
+    title: 'La primera edició (2021)',
+    text: "Es va englobar dins de la programació de festa major 2021, per donar-hi més visibilitat i projecció. Es va optar per una ruta d'uns 10 km per veure quina acceptació tenia i a quin nombre de gent es podia arribar. Com a organització va ser un èxit, ja que va tenir molt bona acollida.",
+  },
+  {
+    title: 'La segona edició (2022)',
+    text: "Es va decidir ampliar la ruta, i sumar una de 28 km, per poder englobar més territori de Sora, amb la part de Cussons-Serradet i Sora de dalt amb un únic circuit, i mantenir una ruta d'11 km. A la segona edició també va sorgir l'oportunitat de formar part de la Copa Osoning Trail Run.",
+  },
+  {
+    title: 'La tercera edició (2023)',
+    text: "Va ser tot un repte, ja que ja érem coneguts al territori i havíem de complir les expectatives. Es va realitzar el 14 de maig del 2023 amb un total d'uns 200 inscrits, mantenint la ruta curta d'11 km i la llarga de 28 km. Com sempre, gràcies a l'equip de voluntaris i el suport de particulars i empreses i el seu patrocini es va poder tirar endavant i va ser tot un èxit, i fins i tot vàrem comptar amb cares conegudes del món de les curses de muntanya i l'esport!",
+  },
+  {
+    title: 'La quarta edició (2024)',
+    text: 'El 25 de maig de 2024 vàrem celebrar la quarta edició amb moltes ganes i la presentació de la nova ruta llarga. Canvi dels 28K i els Munts per 21K cap a Sovelles: una ruta menys coneguda, més salvatge.',
+  },
+  {
+    title: 'La cinquena edició (2025)',
+    text: "Edició del 2025, edició de consolidació. Més de 200 inscrits. Continuïtat de l'equip de voluntaris i fort arrelament al poble.",
+  },
+  {
+    title: 'ARA! 2026',
+    text: "La sisena edició del Trail de Sora afronta el futur amb un projecte madur, sostenible i fidel a la seva essència: una cursa de muntanya de poble, per a tothom, respectuosa amb el medi i amb un fort compromís social. Perquè SOM DE BOSC! Un dels pilars fonamentals d'aquesta consolidació ha estat, sens dubte, la continuïtat de l'equip de voluntaris, format per veïns i veïnes de Sora, molts dels quals ens acompanyen des de la primera edició. El seu compromís, implicació i estima pel territori fan possible que el Trail de Sora mantingui un caràcter proper, familiar i molt arrelat al poble.",
+    highlight: true,
+  },
+];
+---
+
+<Layout title="Trail de Sora — La nostra història i Casa Terra">
+  <!-- Page Header -->
+  <section class="bg-[#181a18] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-5xl sm:text-7xl tracking-wider text-[#fca52a]">Trail de Sora</h1>
+      <p class="mt-4 text-lg text-white/85 leading-relaxed">
+        Trail de Sora va sorgir l'any 2021, quan es va detectar un gran interès i reclam per gent que venia a realitzar activitats esportives a l'entorn de Sora. Veient el gran nombre de persones que tenien com a referent Sora per dur a terme activitats esportives o a l'aire lliure, es va pensar que seria una bona opció oferir un esdeveniment esportiu per donar resposta a aquest interès.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline of Editions -->
+  <section class="py-16 sm:py-24 bg-[#f6f7f4]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      {editions.map((ed) => (
+        <article
+          class:list={[
+            'p-6 sm:p-8 rounded-2xl shadow-sm border transition-shadow hover:shadow-md',
+            ed.highlight
+              ? 'bg-[#181a18] text-white border-[#fca52a]'
+              : 'bg-white text-neutral-800 border-neutral-200/80',
+          ]}
+        >
+          <h2
+            class:list={[
+              'font-heading text-2xl sm:text-3xl tracking-wider',
+              ed.highlight ? 'text-[#fca52a]' : 'text-neutral-900',
+            ]}
+          >
+            {ed.title}
+          </h2>
+          <p class:list={['mt-3 leading-relaxed', ed.highlight ? 'text-white/90' : 'text-neutral-700']}>
+            {ed.text}
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Casa Terra Collaboration Section -->
+  <section class="relative py-20 sm:py-28 overflow-hidden bg-neutral-900 text-white">
+    <img
+      src="/images/casa-terra-bg.jpg"
+      alt="Col·laboració amb Casa Terra"
+      loading="lazy"
+      width="1920"
+      height="1280"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-neutral-950/75"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <img
+        src="/images/casa-terra-logo.png"
+        alt="Casa Terra"
+        width="232"
+        height="120"
+        loading="lazy"
+        class="mx-auto w-56 h-auto object-contain mb-8"
+      />
+
+      <p class="text-base sm:text-lg text-white/95 leading-relaxed">
+        Trail de Sora torna a col·laborar per segona vegada amb <strong>Casa Terra</strong>. 1€ de cada dorsal anirà destinat a aquest projecte, i també hi ha l'opció de comprar el <strong>Dorsal Solidari de 5€</strong>, que es destinaran íntegrament al projecte, més un donatiu voluntari de cada corredor.
+      </p>
+      <p class="mt-4 text-base sm:text-lg text-white/90 leading-relaxed">
+        Casa Terra és un projecte de cooperació responsable que neix de la necessitat d'acompanyar-nos de manera conscient entre diferents comunitats, amb la voluntat d'esdevenir un espai respectuós de cooperació alternativa, ètica i horitzontal. Donem suport i acompanyem projectes transformadors d'arreu del planeta. Des de l'activisme i la cooperació responsable treballem per la justícia global, l'ecologisme, la cultura comunitària, l'economia social i solidària i els drets humans.
+      </p>
+      <p class="mt-4 text-base sm:text-lg text-white/90 leading-relaxed">
+        Actualment estem acompanyant dos projectes: el primer és l'acompanyament a l'organització local nepalesa <strong>PA Nepal</strong>, que vetlla pels drets fonamentals de les dones, els infants i les preses del seu país. El segon projecte és l'acompanyament a l'organització local congolesa <strong>Etoile du Sud</strong>, que vetlla pels drets de les dones i l'accés a la salut entre les classes més populars de la República Democràtica del Congo.
+      </p>
+
+      <div class="mt-10">
+        <a
+          href="https://casa-terra.org/"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-neutral-950 font-heading text-2xl tracking-wider shadow-lg hover:scale-105 transition-transform"
+        >
+          VEURE PROJECTE
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Rutes 2026 — Trail de Sora (11K i 21K)">
+  <section class="bg-[#181a18] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-5xl sm:text-7xl tracking-wider text-[#fca52a]">rutes</h1>
+      <p class="mt-4 text-lg text-white/85">
+        Aquí podeu accedir a les dues rutes d'aquest 16 de maig: <strong class="text-white">A gaudir-les!</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-[#f6f7f4]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Route 1: La Curta 11K -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-neutral-200/80 flex flex-col items-center">
+          <a
+            href="/images/rutes/curta-11k.png"
+            target="_blank"
+            rel="noopener"
+            class="block w-full overflow-hidden rounded-xl group"
+          >
+            <img
+              src="/images/rutes/curta-11k.png"
+              alt="Ruta La Curta 11K - Trail de Sora"
+              fetchpriority="high"
+              width="1024"
+              height="1024"
+              class="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-300"
+            />
+          </a>
+          <div class="mt-6">
+            <span class="inline-block px-8 py-3 rounded-xl bg-[#181a18] text-[#fca52a] font-heading text-2xl sm:text-3xl tracking-wider">
+              LA CURTA 11K
+            </span>
+          </div>
+        </div>
+
+        <!-- Route 2: La Llarga 21K -->
+        <div class="bg-white rounded-2xl p-6 shadow-md border border-neutral-200/80 flex flex-col items-center">
+          <a
+            href="/images/rutes/llarga-21k.png"
+            target="_blank"
+            rel="noopener"
+            class="block w-full overflow-hidden rounded-xl group"
+          >
+            <img
+              src="/images/rutes/llarga-21k.png"
+              alt="Ruta La Llarga 21K - Trail de Sora"
+              width="1024"
+              height="1024"
+              class="w-full h-auto object-contain group-hover:scale-[1.02] transition-transform duration-300"
+            />
+          </a>
+          <div class="mt-6">
+            <span class="inline-block px-8 py-3 rounded-xl bg-[#181a18] text-[#fca52a] font-heading text-2xl sm:text-3xl tracking-wider">
+              LA LLARGA 21K
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Participants CTA -->
+      <div class="mt-14 text-center">
+        <a
+          href="https://www.rockthesport.com/ca/esdeveniment/trail-de-sora-2026/llistat-participants"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="inline-block px-8 py-4 rounded-xl bg-[#fca52a] hover:bg-[#e89218] text-neutral-950 font-heading text-2xl sm:text-3xl tracking-wider shadow-lg hover:scale-105 transition-transform"
+        >
+          CLICA AQUÍ SI VOLS <strong>VEURE LA LLISTA DE VALENTS I VALENTES</strong> QUE SUARAN A SORA
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

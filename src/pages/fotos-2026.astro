@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import photos from '../data/fotos2026.json';
+---
+
+<Layout title="Fotos 2026 (Part 2) — Trail de Sora">
+  <section class="bg-[#181a18] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="mb-4">
+        <a
+          href="/albums-de-fotos/"
+          class="inline-flex items-center gap-2 text-sm text-[#fca52a] hover:underline"
+        >
+          ← Tornar a Àlbums de fotos
+        </a>
+      </div>
+      <h1 class="font-heading text-5xl sm:text-7xl tracking-wider text-[#fca52a]">Fotos 2026</h1>
+      <p class="mt-3 text-white/80">
+        Galeria amb {photos.length} fotografies del Trail de Sora 2026. Clica qualsevol imatge per ampliar-la.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16 bg-[#f6f7f4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {photos.slice(0, 48).map((url, idx) => (
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="group aspect-[3/2] rounded-xl overflow-hidden bg-neutral-200 shadow-sm hover:shadow-lg transition"
+          >
+            <img
+              src={url}
+              alt={`Trail de Sora 2026 - Foto ${idx + 1}`}
+              loading={idx < 4 ? undefined : 'lazy'}
+              fetchpriority={idx === 0 ? 'high' : undefined}
+              width="600"
+              height="400"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </a>
+        ))}
+      </div>
+
+      <div id="load-more-wrap" class="mt-12 text-center">
+        <p id="photo-counter" class="text-sm text-neutral-600 mb-4">
+          Mostrant 48 de {photos.length} fotos
+        </p>
+        <button
+          id="load-more-btn"
+          type="button"
+          class="px-8 py-3.5 rounded-xl bg-[#fca52a] hover:bg-[#e89218] text-neutral-950 font-heading text-2xl tracking-wider shadow-md transition-colors cursor-pointer"
+        >
+          Carregar més fotos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ allPhotos: photos }}>
+    let shown = 48;
+    const batchSize = 48;
+    const grid = document.getElementById('gallery-grid');
+    const btn = document.getElementById('load-more-btn');
+    const counter = document.getElementById('photo-counter');
+    const wrap = document.getElementById('load-more-wrap');
+
+    btn?.addEventListener('click', () => {
+      const nextSlice = allPhotos.slice(shown, shown + batchSize);
+      const fragment = document.createDocumentFragment();
+
+      nextSlice.forEach((url, i) => {
+        const index = shown + i + 1;
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noreferrer noopener';
+        a.className = 'group aspect-[3/2] rounded-xl overflow-hidden bg-neutral-200 shadow-sm hover:shadow-lg transition';
+
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = `Trail de Sora 2026 - Foto ${index}`;
+        img.loading = 'lazy';
+        img.width = 600;
+        img.height = 400;
+        img.className = 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300';
+
+        a.appendChild(img);
+        fragment.appendChild(a);
+      });
+
+      grid?.appendChild(fragment);
+      shown += nextSlice.length;
+
+      if (counter) {
+        counter.textContent = `Mostrant ${shown} de ${allPhotos.length} fotos`;
+      }
+      if (shown >= allPhotos.length && btn) {
+        btn.style.display = 'none';
+      }
+    });
+  </script>
+</Layout>

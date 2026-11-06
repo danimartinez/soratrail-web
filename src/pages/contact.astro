@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacte — Trail de Sora">
+  <!-- Interactive Map Header -->
+  <section class="w-full h-[380px] bg-neutral-200 border-b border-neutral-300 relative">
+    <iframe
+      title="Mapa Zona Esportiva de Sora"
+      width="100%"
+      height="100%"
+      loading="lazy"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=2.1570%2C42.1105%2C2.1670%2C42.1145&layer=mapnik&marker=42.112582%2C2.161879"
+      class="w-full h-full border-0"
+    ></iframe>
+  </section>
+
+  <!-- Contact Cards (Email + Location) -->
+  <section class="grid grid-cols-1 md:grid-cols-2">
+    <div class="bg-[#f6f7f4] p-10 sm:p-14 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-neutral-200">
+      <h2 class="font-heading text-4xl text-neutral-900 tracking-wider">contacte</h2>
+      <div class="mt-5">
+        <a
+          href="mailto:trailsora@gmail.com"
+          class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#fca52a] hover:bg-[#e89218] text-neutral-950 font-semibold shadow-md transition-colors"
+        >
+          <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>trailsora@gmail.com</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-[#181a18] text-white p-10 sm:p-14 flex flex-col items-center justify-center text-center">
+      <h2 class="font-heading text-4xl text-white tracking-wider">ubicació</h2>
+      <div class="mt-5">
+        <a
+          href="https://www.google.com/maps/dir/42.0466263,2.2335077/trail+de+sora/@42.0261481,2.0549408,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x12a53d25faf22f2d:0x4d8d88b1099fe2c7!2m2!1d2.1622692!2d42.1125571?entry=ttu"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#fca52a] hover:bg-[#e89218] text-neutral-950 font-semibold shadow-md transition-colors"
+        >
+          <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>Zona esportiva de Sora</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#f6f7f4] rounded-2xl p-6 sm:p-10 shadow-sm border border-neutral-200/80">
+        <h1 class="font-heading text-4xl sm:text-5xl text-neutral-900 tracking-wider mb-6">
+          Envia'ns un missatge
+        </h1>
+
+        <form id="contact-form" action="/api/contact" method="POST" class="space-y-2">
+          <!-- Honeypot spam protection -->
+          <div class="sr-only" aria-hidden="true">
+            <label for="bot-field">No omplis aquest camp</label>
+            <input type="checkbox" id="bot-field" name="bot_field" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-group">
+            <label for="full-name" class="form-label">
+              Nom <span class="text-red-600" aria-hidden="true">*</span>
+            </label>
+            <span id="name-hint" class="form-hint">El teu nom i cognoms</span>
+            <input
+              type="text"
+              id="full-name"
+              name="name"
+              required
+              maxlength="100"
+              autocomplete="name"
+              enterkeyhint="next"
+              aria-describedby="name-hint"
+              aria-errormessage="name-error"
+              class="form-control"
+            />
+            <div id="name-error" class="error-msg">
+              <span aria-hidden="true">❌</span> Si us plau, introdueix el teu nom.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">
+              Email <span class="text-red-600" aria-hidden="true">*</span>
+            </label>
+            <span id="email-hint" class="form-hint">Format: nom@exemple.cat</span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              enterkeyhint="next"
+              aria-describedby="email-hint"
+              aria-errormessage="email-error"
+              class="form-control"
+            />
+            <div id="email-error" class="error-msg">
+              <span aria-hidden="true">❌</span> Si us plau, introdueix una adreça de correu vàlida.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">
+              Missatge <span class="text-red-600" aria-hidden="true">*</span>
+            </label>
+            <span id="message-hint" class="form-hint">Escriu la teva consulta o comentari</span>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              aria-describedby="message-hint"
+              aria-errormessage="message-error"
+              class="form-control"
+            ></textarea>
+            <div id="message-error" class="error-msg">
+              <span aria-hidden="true">❌</span> Si us plau, escriu el teu missatge.
+            </div>
+          </div>
+
+          <p class="text-xs text-neutral-600 leading-relaxed pb-3">
+            En enviar aquest formulari acceptes rebre resposta per correu electrònic i entens que les teves dades de contacte es faran servir únicament per atendre la teva consulta.
+          </p>
+
+          <div id="form-status" role="status" aria-live="polite" class="hidden rounded-xl p-4 text-sm font-medium mb-4"></div>
+
+          <button
+            id="submit-btn"
+            type="submit"
+            class="px-8 py-3.5 rounded-xl bg-[#fca52a] hover:bg-[#e89218] text-neutral-950 font-heading text-2xl tracking-wider shadow-md transition-colors cursor-pointer disabled:opacity-60"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Deferred validation fallback + ARIA sync (modern-web-guidance: validate-input-after-interaction)
+    const UserInvalidFallback = (() => {
+      const dirtyState = new WeakMap<Element, { hasInteracted: boolean; hasBlurred: boolean }>();
+
+      const updateState = (input: HTMLInputElement | HTMLTextAreaElement) => {
+        const isValid = input.checkValidity();
+        input.classList.toggle('user-invalid-fallback', !isValid);
+        input.classList.toggle('user-valid-fallback', isValid);
+        if (!isValid) {
+          input.setAttribute('aria-invalid', 'true');
+        } else {
+          input.removeAttribute('aria-invalid');
+        }
+      };
+
+      const handleEvent = (event: Event) => {
+        const target = event.target as HTMLElement | null;
+        if (!target) return;
+
+        if (event.type === 'reset' && target instanceof HTMLFormElement) {
+          const controls = Array.from(target.elements);
+          for (const control of controls) {
+            dirtyState.delete(control);
+            control.classList.remove('user-invalid-fallback', 'user-valid-fallback');
+            control.removeAttribute('aria-invalid');
+          }
+          return;
+        }
+
+        if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) return;
+
+        if (event.type === 'input' || event.type === 'change') {
+          const state = dirtyState.get(target) || { hasInteracted: false, hasBlurred: false };
+          state.hasInteracted = true;
+          dirtyState.set(target, state);
+          if (state.hasBlurred) updateState(target);
+        } else if (event.type === 'blur') {
+          const state = dirtyState.get(target) || { hasInteracted: false, hasBlurred: false };
+          state.hasBlurred = true;
+          dirtyState.set(target, state);
+          if (state.hasInteracted) updateState(target);
+        }
+      };
+
+      const init = (root: Document | HTMLElement = document) => {
+        if (CSS.supports('selector(:user-invalid)')) return;
+        root.addEventListener('blur', handleEvent, true);
+        root.addEventListener('input', handleEvent);
+        root.addEventListener('change', handleEvent);
+        root.addEventListener('reset', handleEvent, true);
+      };
+
+      return { init };
+    })();
+
+    const form = document.querySelector('#contact-form') as HTMLFormElement | null;
+    if (form) {
+      UserInvalidFallback.init(form);
+
+      const syncAria = (el: EventTarget | null) => {
+        if (el instanceof HTMLElement && 'matches' in el) {
+          el.setAttribute('aria-invalid', el.matches(':user-invalid') ? 'true' : 'false');
+        }
+      };
+
+      form.addEventListener('blur', (e) => syncAria(e.target), true);
+      form.addEventListener('input', (e) => {
+        if (e.target instanceof HTMLElement && e.target.hasAttribute('aria-invalid')) {
+          syncAria(e.target);
+        }
+      });
+
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) return;
+
+        if (submitBtn) submitBtn.disabled = true;
+        const data = new FormData(form);
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { Accept: 'application/json' },
+          });
+
+          if (res.ok) {
+            if (statusEl) {
+              statusEl.className = 'rounded-xl p-4 text-sm font-medium mb-4 bg-emerald-100 text-emerald-900 border border-emerald-300';
+              statusEl.textContent = 'Gràcies! El teu missatge s\'ha enviat correctament. Et respondrem ben aviat.';
+            }
+            form.reset();
+          } else {
+            throw new Error('Fallback to mailto');
+          }
+        } catch {
+          // Graceful mailto fallback if no backend env key is configured yet
+          const name = String(data.get('name') || '');
+          const email = String(data.get('email') || '');
+          const message = String(data.get('message') || '');
+          const subject = encodeURIComponent(`Contacte web Trail de Sora: ${name}`);
+          const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMissatge:\n${message}`);
+          window.location.href = `mailto:trailsora@gmail.com?subject=${subject}&body=${body}`;
+          if (statusEl) {
+            statusEl.className = 'rounded-xl p-4 text-sm font-medium mb-4 bg-amber-100 text-amber-900 border border-amber-300';
+            statusEl.textContent = 'S\'ha obert el teu gestor de correu per enviar el missatge a trailsora@gmail.com.';
+          }
+        } finally {
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+</Layout>

@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const albums = [
+  {
+    label: '2026 – PART 1',
+    href: 'https://photos.google.com/share/AF1QipONdKAv5X99eM_jNnwy9yqEjyPKC6eEPBQRdFOKGfj1_Vopkt09_6I3EDiwStiB0w?key=VjFUSlZvOEtzX2dqQnNrdU0wclFwRnpqRXM5RW1R',
+    image: '/images/albums/2026.jpg',
+    external: true,
+    badgeClass: 'from-amber-400 to-orange-500 text-neutral-950',
+  },
+  {
+    label: '2026 – PART 2',
+    href: '/fotos-2026/',
+    image: '/images/albums/2026.jpg',
+    external: false,
+    badgeClass: 'from-amber-400 to-orange-500 text-neutral-950',
+  },
+  {
+    label: '2025 – PART 1',
+    href: 'https://flic.kr/s/aHBqjCfZgs',
+    image: '/images/albums/2025.jpg',
+    external: true,
+    badgeClass: 'from-rose-500 to-red-700 text-white',
+  },
+  {
+    label: '2025 – PART 2',
+    href: 'https://www.flickr.com/photos/146157561@N03/albums/72177720326421369',
+    image: '/images/albums/2025.jpg',
+    external: true,
+    badgeClass: 'from-rose-500 to-red-700 text-white',
+  },
+  {
+    label: '2024',
+    href: 'https://photos.app.goo.gl/sQoRa9DiY1uxxp9Z7',
+    image: '/images/albums/2024.jpg',
+    external: true,
+    badgeClass: 'from-lime-400 to-emerald-500 text-neutral-950',
+  },
+  {
+    label: '2023',
+    href: 'https://photos.app.goo.gl/WAwUvXv4bctKzgwt5',
+    image: '/images/albums/2023.jpg',
+    external: true,
+    badgeClass: 'from-sky-400 to-purple-600 text-white',
+  },
+  {
+    label: '2022',
+    href: 'https://photos.app.goo.gl/bNcxzcViqyfEcgUq9',
+    image: '/images/albums/2022.jpg',
+    external: true,
+    badgeClass: 'from-teal-300 to-emerald-500 text-neutral-950',
+  },
+  {
+    label: '2021',
+    href: 'https://photos.google.com/album/AF1QipO9_HRqN1SYOhyWZpU5UtF2fJfXO9Ky9ZGoAgU',
+    image: '/images/albums/2021.jpg',
+    external: true,
+    badgeClass: 'from-amber-400 to-orange-500 text-neutral-950',
+  },
+];
+---
+
+<Layout title="Àlbums de fotos — Trail de Sora">
+  <section class="bg-[#181a18] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-5xl sm:text-7xl tracking-wider text-[#fca52a]">Àlbums de fotos</h1>
+      <p class="mt-4 text-lg text-white/85">
+        Totes les galeries fotogràfiques del Trail de Sora des de la primera edició (2021 – 2026).
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-[#f6f7f4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {albums.map((album, idx) => (
+          <a
+            href={album.href}
+            target={album.external ? '_blank' : undefined}
+            rel={album.external ? 'noreferrer noopener' : undefined}
+            class="group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+          >
+            <img
+              src={album.image}
+              alt={`Àlbum Trail de Sora ${album.label}`}
+              width="1024"
+              height="683"
+              fetchpriority={idx === 0 ? 'high' : undefined}
+              loading={idx === 0 ? undefined : 'lazy'}
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-neutral-950/45 group-hover:bg-neutral-950/30 transition-colors"></div>
+
+            <span
+              class:list={[
+                'relative z-10 inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r font-heading text-2xl sm:text-3xl tracking-wider shadow-lg group-hover:scale-105 transition-transform min-w-[200px] text-center',
+                album.badgeClass,
+              ]}
+            >
+              {album.label}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-brand-orange: #fca52a;
+    --color-brand-orange-hover: #e89218;
+    --color-brand-green: #a8c66b;
+    --color-brand-green-dark: #2b9624;
+    --color-dark: #181a18;
+    --color-light: #f6f7f4;
+    --font-heading: 'Bebas Neue', Impact, sans-serif;
+    --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-body);
+    color: #262626;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ==========================================================================
+   Navigation Drawer (modern-web-guidance: navigation-drawer)
+   ========================================================================== */
+@property --drawer-backdrop {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes drawer-backdrop-fade {
+  from {
+    --drawer-backdrop: 1;
+  }
+  to {
+    --drawer-backdrop: 0;
+  }
+}
+
+.Drawer {
+  --drawer-width: min(20em, 80dvw);
+  --drawer-backdrop: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100dvw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  background: transparent;
+  overflow: hidden;
+  animation: drawer-backdrop-fade linear both;
+  animation-timeline: --drawer-scroll;
+}
+
+.Drawer::backdrop {
+  background: #000;
+  opacity: calc(var(--drawer-backdrop) * 0.6);
+}
+
+.Drawer-scroller {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--drawer-width) 100%;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  overscroll-behavior: none;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-timeline: --drawer-scroll x;
+}
+
+.Drawer-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Drawer-scroller {
+    scroll-behavior: smooth;
+  }
+}
+
+.Drawer-scroller::after {
+  content: '';
+  scroll-snap-align: end;
+  scroll-initial-target: nearest;
+}
+
+.Drawer-sheet {
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100%;
+  background: #181a18;
+  color: #ffffff;
+  overflow-y: auto;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* ==========================================================================
+   Forms & Deferred Validation (modern-web-guidance: forms, validate-input-after-interaction)
+   ========================================================================== */
+.form-group {
+  margin-block-end: 1.5rem;
+}
+
+.form-label {
+  display: inline-block;
+  font-weight: 600;
+  color: #181a18;
+  padding: 10px 0;
+  margin: -10px 0 0.25rem 0;
+}
+
+.form-hint {
+  display: block;
+  color: #5f6368;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.form-control {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  min-height: 48px;
+  box-sizing: border-box;
+  border: 2px solid #9ca3af;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: #181a18;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+@media (pointer: coarse) {
+  .form-control {
+    min-height: 52px;
+  }
+}
+
+.form-control:focus-visible {
+  outline: 3px solid #fca52a;
+  outline-offset: 2px;
+  border-color: #181a18;
+}
+
+.error-msg {
+  display: none;
+  color: #d93025;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+.form-control:user-invalid,
+.form-control.user-invalid-fallback {
+  border-color: #d93025;
+  background-color: #fce8e6;
+}
+
+.form-control:user-invalid + .error-msg,
+.form-control.user-invalid-fallback + .error-msg {
+  display: block;
+}
+
+.form-control:user-valid,
+.form-control.user-valid-fallback {
+  border-color: #188038;
+}

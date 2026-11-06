@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sora — El Municipi i Entorn | Trail de Sora">
+  <section class="bg-[#181a18] text-white py-14 sm:py-20 border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-heading text-5xl sm:text-7xl tracking-wider text-[#fca52a]">sora</h1>
+      <p class="mt-4 text-lg text-white/85 leading-relaxed">
+        Descobreix l'entorn privilegiat del Bisaura i la vall prepirinenca que acull el Trail de Sora.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-[#f6f7f4]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-neutral-200/80">
+        <p class="text-lg text-neutral-800 leading-relaxed">
+          <strong>Sora</strong> és un municipi de la subcomarca del Bisaura, adscrit a la comarca d'Osona. S'ubica al límit amb el Ripollès, comarca a la qual va pertànyer fins al 1990. Està situat al centre de la regió de l'Alt Ter. Tradicionalment s'ha inclòs al Lluçanès, bé que forma un terme totalment perifèric que no té cap vinculació amb aquesta subcomarca.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <figure class="rounded-xl overflow-hidden shadow-md aspect-[4/3] bg-neutral-200">
+            <img
+              src="/images/sora/sora-1.jpg"
+              alt="Panoràmica de Sora"
+              fetchpriority="high"
+              width="1024"
+              height="768"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+          <figure class="rounded-xl overflow-hidden shadow-md aspect-[4/3] bg-neutral-200">
+            <img
+              src="/images/sora/sora-2.jpg"
+              alt="Entorn natural de Sora"
+              loading="lazy"
+              width="1024"
+              height="768"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+        </div>
+
+        <p class="mt-8 text-lg text-neutral-800 leading-relaxed">
+          Sora, que ocupa dos terços del terme, afluent del Ter per la dreta, verda i frondosa, té ja l'aspecte geogràfic de vall prepirinenca. L'altitud mitjana de la vall és de 700 m, però és voltada d'alts cimals (més de 1.000 m al sector nord o de Sovelles, 943 m a l'oest, sobre la Tremolosa, etc.).
+        </p>
+      </div>
+
+      <!-- On Menjar / On Dormir -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200/80">
+          <h2 class="font-heading text-3xl text-neutral-900 tracking-wider flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#fca52a]"></span>
+            ON MENJAR?
+          </h2>
+          <ul class="mt-4 space-y-3 text-neutral-700 font-medium">
+            <li class="flex items-center gap-2.5">
+              <span class="text-[#2b9624]">•</span>
+              Restaurant Can Corominas
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="text-[#2b9624]">•</span>
+              Restaurant El Serradet
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200/80">
+          <h2 class="font-heading text-3xl text-neutral-900 tracking-wider flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#a8c66b]"></span>
+            ON DORMIR?
+          </h2>
+          <p class="mt-4 text-neutral-600 text-sm leading-relaxed">
+            Consulta els allotjaments rurals del terme de Sora i la subcomarca del Bisaura o escriu-nos a <a href="mailto:trailsora@gmail.com" class="text-[#d9820b] font-semibold hover:underline">trailsora@gmail.com</a> si necessites recomanacions per al cap de setmana de la cursa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
